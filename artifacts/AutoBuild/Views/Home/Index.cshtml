@@ -1,0 +1,31 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+@using (Html.BeginForm("CalculateSum", "Home"))
+{
+   
+    <div class="jumbotron">
+      Auto Build Continuous Deploy Prototype
+    </div>
+
+    <div class="row">
+        <div class="col-md-7">
+            <label> Value 1</label>
+            @Html.TextBox("value1")
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-7">
+            <label> Value 2</label>
+            @Html.TextBox("value2")
+        </div>
+    </div>
+    <br/>
+            <button type="submit" value="Calculate" class="btn  btn-success">Create</button>
+           if (ViewBag.SumValue != null)
+            {
+                <pre>
+                     Sum of value is: @ViewBag.SumValue
+                </pre>
+            }
+}

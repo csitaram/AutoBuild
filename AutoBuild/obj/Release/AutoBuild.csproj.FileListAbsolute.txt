@@ -1,0 +1,8 @@
+D:\AutoBuild\artifacts\AutoBuild\bin\ApplicationInsights.config
+D:\AutoBuild\artifacts\AutoBuild\bin\AutoBuild.dll.config
+D:\AutoBuild\artifacts\AutoBuild\bin\AutoBuild.dll
+D:\AutoBuild\AutoBuild\obj\Release\AutoBuild.csprojResolveAssemblyReference.cache
+D:\AutoBuild\AutoBuild\obj\Release\AutoBuild.dll
+D:\AutoBuild\artifacts\AutoBuild.Tests\ApplicationInsights.config
+D:\AutoBuild\artifacts\AutoBuild.Tests\AutoBuild.dll.config
+D:\AutoBuild\artifacts\AutoBuild.Tests\AutoBuild.dll
