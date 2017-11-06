@@ -49,9 +49,8 @@ function Get-Version($projectPath)
 		$version = "$($version.Replace("*" ,0))-pre$preRelease"
 		Write-Host "After version $version"
 	}else {
-		$version = $version.Replace("*", $env:BUILD_SERVER)
-			Write-Host ("ELSE $version")
-	
+		$version = $version.Replace("*", $env:BUILD_NUMBER)
+		Write-Host ("Remote $version")
 	}
 	return $version
 }
