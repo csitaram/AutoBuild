@@ -90,7 +90,6 @@ param (
 	}
 	
 	task Push {
-		Write-Host "Reached in Push $octopusDeployServer"
 		$projects |
 			ForEach-Object {
 					$octopusToolsPath = Get-PackagePath "OctopusTools" $($_.Directory)
@@ -108,20 +107,18 @@ param (
 		$projects |
 		ForEach-Object {
 			$octopusToolsPath = Get-PackagePath "OctopusTools" $($_.Directory)
-
 			if($octopusToolsPath -eq $null){
 				return
 			}
 			$version = Get-Version $_.Directory
-			Write-Host "Get version $version"
 			exec { & $octopusToolsPath\tools\Octo.exe create-release `
 			  --server="$octopusDeployServer" `
 			  --apiKey="$octopusDeployApiKey" `
-			  --project="$($_.PackageId)" `
+			  --project="AutoBuild-web" `
 			  --version="$version" `
 			  --packageVersion="$version" `
 			  --ignoreexisting }
-	} 
+		} 
 }
 
 task Deploy{
@@ -135,14 +132,14 @@ task Deploy{
 				exec { & $octopusToolsPath\tools\Octo.exe deploy-release `
 				--server="$octopusDeployServer" `
 				--apiKey="$octopusDeployApiKey" `
-				--project="$($_.PackageId)" `
+				--project="AutoBuild-web" `
 				--version="$version" `
-				--deployto="$env:environment" }
+				--deployto="QA" }
 		}
 }
 
 	task dev clean, compile, test, pack
-	task ci dev, push, release
+	task ci dev, push, release, deploy
 
 
 	task Test{
