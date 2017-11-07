@@ -14,6 +14,7 @@ function Get-SolutionProjects
 				Name =  $_.ProjectName;
 				Directory = "$(Split-Path -Path $_.AbsolutePath -Resolve)";
 				IsWebProject = $isWebProject;
+				PackageId = $_.ProjectName -replace "\.","-";
 
 			}
 		}
@@ -31,7 +32,8 @@ function Get-PackagePath($packageId, $projectPath) {
 		return "packages\$($package.id).$($package.version)"
 }
 
-
+$preRelease = $(Get-Date).ToString("yyMMDDHHmmss")
+	
 function Get-Version($projectPath) 
 {
 	$line =  Get-Content "$projectPath\Properties\AssemblyInfo.cs" | Where {$_.Contains("AssemblyVersion")}
@@ -45,7 +47,6 @@ function Get-Version($projectPath)
 	Write-Host ("Verion line $line version $version and $isLocal")
 	if ($isLocal) {
 		Write-Host ("Is local $isLocal")
-		$preRelease = $(Get-Date).ToString("yyMMDDHHmmss")
 		$version = "$($version.Replace("*" ,0))-pre$preRelease"
 		Write-Host "After version $version"
 	}else {
