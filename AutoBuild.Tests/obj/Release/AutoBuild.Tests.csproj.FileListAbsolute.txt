@@ -1,3 +1,5 @@
+D:\AutoBuild\artifacts\AutoBuild.Tests\Content\bootstrap.css
+D:\AutoBuild\artifacts\AutoBuild.Tests\Content\Site.css
 D:\AutoBuild\artifacts\AutoBuild.Tests\ApplicationInsights.config
 D:\AutoBuild\artifacts\AutoBuild.Tests\AutoBuild.Tests.dll.config
 D:\AutoBuild\artifacts\AutoBuild.Tests\AutoBuild.Tests.dll

@@ -114,7 +114,7 @@ param (
 			exec { & $octopusToolsPath\tools\Octo.exe create-release `
 			  --server="$octopusDeployServer" `
 			  --apiKey="$octopusDeployApiKey" `
-			  --project="AutoBuild-web" `
+			  --project="AutoBuild" `
 			  --version="$version" `
 			  --packageVersion="$version" `
 			  --ignoreexisting }
@@ -132,7 +132,7 @@ task Deploy{
 				exec { & $octopusToolsPath\tools\Octo.exe deploy-release `
 				--server="$octopusDeployServer" `
 				--apiKey="$octopusDeployApiKey" `
-				--project="AutoBuild-web" `
+				--project="AutoBuild" `
 				--version="$version" `
 				--deployto="QA" }
 		}
