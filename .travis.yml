@@ -1,8 +1,7 @@
 language: csharp
 solution: AutoBuild.sln
-
 install:
-     - nuget restore AutoBuild.sln
+    - nuget restore AutoBuild.sln
     - nuget install xunit.runner.console 2.3.1 -OutputDirectory testrunner
 script: 
     - xbuild ./:Configuration=Release AutoBuild.sln
