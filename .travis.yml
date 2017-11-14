@@ -2,7 +2,7 @@ language: csharp
 solution: AutoBuild.sln
 
 install:
-    - sudo apt-get install xunit-console
+    - sudo apt-get install xunit.runner.console
     - nuget restore AutoBuild.sln
 script: 
     - xbuild AutoBuild.sln
