@@ -1,4 +1,9 @@
 language: csharp
 solution: AutoBuild.sln
+
+install:
+    - sudo apt-get install xunit-console
+    - nuget restore AutoBuild.sln
 script: 
-    - .build.ps1
+    - xbuild AutoBuild.sln
+    - xunit-console AutoBuild.Tests/bin/Debug/AutoBuild.Tests.dll
